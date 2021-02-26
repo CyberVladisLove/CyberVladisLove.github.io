@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: #c5d7ff;
+    margin: 87.5px 0;
+    padding: 0;
+    font-family: 'Comfortaa', cursive;
+    height: 500%;
+}
+.navbar{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    background-color: cadetblue;
+    font-size: 24px;
+    
+}
+.nav{
+    float: right;
+    padding: 15px 0;
+
+}
+ul li{
+    display: inline-block;
+    margin: 15px 20px;
+    list-style: none;
+    transition: 0.3s;
+}
+ul li a{
+    text-decoration: none;
+    padding: 25px 10px;
+    color: white;
+    
+}
+ul li a:hover{
+    transition: 0.3s;
+    color: rgb(36, 36, 36);
+    
+}
+.logo{
+    float: left;
+    color: white;
+    font-size: 30px;
+    padding: 27px 50px;
+    transition: 0.3s;
+}
+ul li:hover{
+    transform: scale(1.1);
+    color: rgb(119, 119, 119);
+    
+}
+
+
+.info1{
+    margin: 100px auto 0 auto;
+    width: 60%;
+    
+    height: 450px;
+    
+}
+.info1 img{
+    float: left;
+    width: 400px;
+    height: 400px;
+    margin: 25px 150px 0 0;
+    box-shadow: 0px 0px 20px rgb(49, 62, 255);
+    border-radius: 20px 20px;
+    transition: 0.3s;
+}
+
+.text1{
+    display: flexbox;
+    margin: 100px 25px;
+    text-align: justify;
+    font-size: 25px;
+    line-height: 1.5;
+}
+.info1 a:before {
+	display: block;
+	content: "";
+	height: 80px;
+	margin: -100px 0 0;
+}
+.info2{
+    margin: 0 auto 0 auto;
+    width: 60%;
+    padding: 20px;
+    height: 450px;
+    
+}
+.info2 img{
+    float: right;
+    width: 400px;
+    height: 400px;
+    margin: 0 0 0 50px;
+    box-shadow: 0px 0px 20px rgb(68, 184, 168);
+    border-radius: 20px 20px;
+    border: 1px solid rgb(68, 184, 168);
+    transition: 0.3s;
+}
+
+.text2{
+    float: left;
+    display: flexbox;
+    width: 50%;
+    margin: 75px 0;
+    text-align: justify;
+    font-size: 25px;
+    line-height: 1.5;
+}
+.info2 a:before {
+	display: block;
+	content: "";
+	height: 120px;
+	margin: -80px 0 0;
+}
+.anons p{
+    margin: 75px 75px 50px 75px;
+    text-align:center;
+    font-size: 27px;
+}
+
+.block{
+    width: 60%;
+    min-height: 300px;
+    max-height: max-content;
+    margin: 0 auto 50px auto;
+    background: linear-gradient(40deg, rgb(87, 126, 255), rgb(170, 106, 255));
+    border-radius: 24px 24px;
+    box-shadow: 0px 0px 30px rgb(87, 126, 255);
+}
+
+#greetings_enter_name form{
+
+    font-size: 25px;
+    width: 30%;
+    margin: 0 auto;
+    padding: 110px;
+}
+input{
+    height: 25px;
+    margin: 12px 0 0 0;
+    font-size: 17px;
+    border-radius: 2px 2px;
+}
+#greet_submit{
+    height: 30px;
+    width: max-content;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+
+.hidden{
+	display: none;
+	visibility: hidden;
+    
+}
+#greetings{
+    width: 33%;
+    display: inline-block;
+    margin: 30px 0 30px 0;
+    
+}
+#greetings button{   
+    display: inline-block;
+    height: 24px;
+    font-size: 15px;   
+}
+#greet_msg{
+    display: inline-block;
+    width: 60%;
+    
+}
+#triangle form{
+    font-size: 25px;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0;
+
+}
+.submit{
+    height: 30px;
+    width: max-content;
+    margin: 10px 0;
+    padding: 4px;
+    font-size: 17px;
+
+}
+.result{
+    width: 100%;
+	height: 25px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 2px 2px;
+	
+}
+
+h2{
+    text-align:center;
+    padding: 20px;
+}
+#strings form{
+    font-size: 25px;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+#array form{
+    font-size: 25px;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#timer form{
+    width: 16%;
+    margin: 0 auto;
+}
+#timer_display{
+    font-size: 35px;
+}
+
+#test form{
+    width: 90%;
+    margin: 0 auto;
+}
+#test form input{ 
+    margin: 10px 4px 20px 25px;
+}
+#test_res{
+    margin: 0 auto;
+}
+
+#test {
+    height: 700px;
+}
+
+.popup{
+    
+    display: none;
+    position: fixed;
+    
+    height: 100%;
+    margin: 150px auto 0 auto;
+    border: 2px black;
+    width: 100%;
+    
+}
+.close{
+    float: right;
+   
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 5px;
+    
+}
+.close:hover,
+.close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.popup-header{
+    background-color:  cadetblue;
+    height: 87px;
+    text-align: center;
+    
+    font-size: 25px;
+    
+}
+
+.popup-body{
+    width: max-content;
+    margin: 0 auto;
+    height: 100%;
+    font-size: 50px;
+}
+.popup-content{
+    position: relative;
+    height: 75%;
+    border: 1px solid black;
+    background: url(img/picture.jpg) no-repeat center center / cover;
+}
+
+#date{
+    padding: 25px;
+}

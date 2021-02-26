@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS for you</title>
+</head>
+<body>
+    <div id="mypopup" class="popup">
+
+        <div class="popup-content">
+
+            
+
+            <div class="popup-body">
+                <span class="close">&times;</span>
+                <div id="date"></div>
+                
+               
+            </div>
+
+        </div>
+
+    </div>
+
+        <div class="navbar">
+            <div class="logo">JavaScript - Mein Leben</div>
+
+            <div id="greetings" class="hidden"> 
+                <div id="greet_msg"></div>
+                <button id="greet_other_name">Убрать приветствие</button>
+            </div>
+            
+            <div class="nav">
+                <ul>
+                    <li><a a href="" id="popupOpen">Заставка</a></li>
+                    <li><a href="#about">Что это</a></li>
+                    <li><a href="#start">Описание</a></li>
+                    <li><a href="#power">В чем сила</a></li>
+                </ul>    
+            </div>
+            
+        </div>
+              
+    
+    
+    <div class="info1">
+        <p><a name="about"></a></p>
+        <img src="img/avatar.png" id="magic" alt="">
+         
+        <div class="text1">
+            <strong>JavaSctipt</strong> - язык для составления скриптов, разработанный фирмой Netscape.
+            С его помощью вы можете легко создавать интерактивные Web-страницы.
+        </div>
+    </div>
+
+    <div class="info2">
+        <p><a name="start"></a></p>
+        <div class="text2">
+            <strong>JavaSctipt</strong> - это такой язык, в котором можно всё!
+            Он умеет в процедурный стиль, функциолнальный и даже объектно-ориентированный!
+            А ещё он динамически типизирован, что ползволяет не сильно заморачиваться с типами данных :) 
+            
+        </div>
+        
+        <img src="img/j-js.png" alt="">           
+    </div>
+    
+    <div class="anons">
+        <p><a name="power">Далее вы увидете, что можно сделать с помощью JavaScript</a></p>                  
+    </div>
+
+    
+    
+    <div id="greetings_enter_name" class="block">
+        <form action="" method="post">
+            <label for="name">
+                Ваше имя?
+                <input type="text" name = "_name" id="greet_name">
+            </label>
+            <input type="submit" value="Подтвердить" id="greet_submit">
+        </form>
+    </div>
+
+    <div id="triangle" class="block">
+        
+        <a name="power"></a>                
+        <h2 >Введите высоту и основание треугольника</h2>
+        
+		<form action="" method="post">
+			<label for="height">
+				Высота:
+				<input id='height' type='number'>
+
+			</label>
+
+			<label for="base">
+				Основание:
+				<input id='base' type='number'>
+			</label>
+            
+			<input type="submit" class="submit" value="Посчитать площадь" id="triangle_submit">
+		</form>
+
+		<div id="triangle_area" class="result"></div>
+    </div>
+
+    <div id="strings" class="block">
+        <h2 >Введите две строки</h2>
+
+        <form action="" method="post">
+            <input type="text" id="str1"><br>
+            <input type="text" id="str2"><br>
+            <input type="submit" class="submit" value="Сравнить" id="strings_submit">
+        </form>
+        <div id="strings_res" class="result"></div>
+
+    </div>
+
+    <div id="array" class="block">
+        <h2 >Введите массив чисел через пробел</h2>
+
+        <form action="" method="post">
+			<input type="text" id="arr" value="1 2">
+			<input type="submit" class="submit" value="Анализ" id="array_submit">
+		</form>
+
+		
+		<div class="result" id="min"></div>
+		
+		<div class="result" id="max"></div>
+
+    </div>
+
+    <div id="timer" class="block">
+        <h2 >Таймер</h2>
+        <div id="timer_display" class="result">00:00</div>
+        
+        <form>
+        <input id="timer_start" type="submit" class="submit" value="Старт">
+        <input id="timer_stop" type="submit" class="submit" value="Стоп">
+        <input id="timer_reset" type="submit" class="submit" value="Сброс">
+        </form>
+        
+       
+
+    </div>
+
+    <div id="test" class="block">
+        <h2>Пройдите тест</h2>
+        <form>
+            <h4>1. Какая компания разработала JavaScript?</h4>
+            <input type="radio" name="q1" value="a">Netscape
+            <input type="radio" name="q1" value="b">Netсracker
+            <input type="radio" name="q1" value="c">Microsoft
+            <input type="radio" name="q1" value="d">Valve
+            <br>
+            <h4>2. Верно ли, что ООП - основной стиль написание кода в JS, прямо как в Java?</h4>
+            <input type="radio" name="q2" value="b">Да
+            <input type="radio" name="q2" value="a">Нет         
+            <br>
+            <h4>3. Насколько строгая типизация в JS?</h4>
+            <input type="radio" name="q3" value="c">Как в c++
+            <input type="radio" name="q3" value="b">Как в Java, они же братья
+            <input type="radio" name="q3" value="a">Не строгая, ведь JS динамически-типизирован
+            <br>
+            <h4>4. Что такое null?</h4>
+            <input type="radio" name="q4" value="d">0
+            <input type="radio" name="q4" value="b">Not a Number
+            <input type="radio" name="q4" value="a">Ничего
+            <br>
+            <h4>5. Что такое localStorage?</h4>
+            <input type="radio" name="q5" value="v">Локальная сеть
+            <input type="radio" name="q5" value="a">Кеш-хранилище браузера
+            <input type="radio" name="q5" value="c">Личный кабинет
+            <br>
+            <h4>6. let a = 5+"привет" Чему будет равно a? </h4>
+            <input type="radio" name="q6" value="a">5привет
+            <input type="radio" name="q6" value="b">Будет ошибка
+            <input type="radio" name="q6" value="c">NaN
+            <br>
+            <h4>7. За что отвечает JavaScript?</h4>
+            <input type="radio" name="q7" value="d">Текстовая разметка элементов
+            <input type="radio" name="q7" value="a">Функционал сайта
+            <input type="radio" name="q7" value="c">Стили элементов
+            <br>
+            <input type="submit" class="submit" value="Завершить тест" id="test_submit">
+            <br>
+            <div class="result" id="test_res"></div>
+        </form>
+
+    </div>
+    
+</body>
+</html>
