@@ -189,7 +189,7 @@ input{
 .submit{
     height: 30px;
     width: max-content;
-    margin: 10px 0;
+    margin: 10px auto;
     padding: 4px;
     font-size: 17px;
 
@@ -218,17 +218,48 @@ h2{
 
 #array form{
     font-size: 25px;
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
     padding: 0;
 }
-
+#array_submit{
+    margin: 10px 300px;
+}
 #timer form{
     width: 16%;
     margin: 0 auto;
 }
-#timer_display{
+#timer_display_hour,
+#timer_display_min,
+#timer_display_sec{
+    display: inline-block;
+    width: 22%;
     font-size: 35px;
+    margin: 10px 0px;
+    padding: 0 10px;
+}
+#timer form{
+    width: 25%;
+}
+#timer_start,
+#timer_stop,
+#timer_reset{
+    width: 32%
+}
+#set_hour,
+#set_min,
+#set_sec{
+    
+    width: 30.5%;
+    
+}
+#timer_display{
+    width: 22%;
+    font-size: 35px;
+    margin: 20px auto 20px auto;
+}
+#timer{
+    height: 400px;
 }
 
 #test form{
@@ -245,7 +276,6 @@ h2{
 #test {
     height: 700px;
 }
-
 .popup{
     
     display: none;
@@ -296,4 +326,7 @@ h2{
 
 #date{
     padding: 25px;
+}
+.num{
+    width: 18%;
 }

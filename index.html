@@ -120,10 +120,14 @@
     </div>
 
     <div id="array" class="block">
-        <h2 >Введите массив чисел через пробел</h2>
+        <h2 >Введите 5 чисел</h2>
 
         <form action="" method="post">
-			<input type="text" id="arr" value="1 2">
+			<input type="number" id="num1" class="num">
+            <input type="number" id="num2" class="num">
+            <input type="number" id="num3" class="num">
+            <input type="number" id="num4" class="num">
+            <input type="number" id="num5" class="num">
 			<input type="submit" class="submit" value="Анализ" id="array_submit">
 		</form>
 
@@ -136,7 +140,19 @@
 
     <div id="timer" class="block">
         <h2 >Таймер</h2>
-        <div id="timer_display" class="result">00:00</div>
+
+        <form id="input_time"action="" method="post">
+			<input type="number" id="set_hour" class="num">
+            <input type="number" id="set_min" class="num">
+            <input type="number" id="set_sec" class="num">
+		</form>
+
+        <div id="timer_display">
+            <div id="timer_display_hour" class="result">00</div>
+            <div id="timer_display_min" class="result">00</div>
+            <div id="timer_display_sec" class="result">00</div>
+        </div>
+        
         
         <form>
         <input id="timer_start" type="submit" class="submit" value="Старт">
@@ -144,6 +160,7 @@
         <input id="timer_reset" type="submit" class="submit" value="Сброс">
         </form>
         
+        <div class="result" id="elapsed_time"></div>
        
 
     </div>
@@ -152,14 +169,15 @@
         <h2>Пройдите тест</h2>
         <form>
             <h4>1. Какая компания разработала JavaScript?</h4>
-            <input type="radio" name="q1" value="a">Netscape
+            <input type="radio" name="q1" value="a" class="s">Netscape
             <input type="radio" name="q1" value="b">Netсracker
             <input type="radio" name="q1" value="c">Microsoft
             <input type="radio" name="q1" value="d">Valve
             <br>
             <h4>2. Верно ли, что ООП - основной стиль написание кода в JS, прямо как в Java?</h4>
             <input type="radio" name="q2" value="b">Да
-            <input type="radio" name="q2" value="a">Нет         
+            <input type="radio" name="q2" value="a">Нет
+            <input type="radio" name="q2" value="с">Что такое ООП?         
             <br>
             <h4>3. Насколько строгая типизация в JS?</h4>
             <input type="radio" name="q3" value="c">Как в c++

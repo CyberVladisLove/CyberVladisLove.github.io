@@ -60,100 +60,163 @@ function triangle(){
 	let triangle_area = document.getElementById('triangle_area');
 
 	triangle_submit.onclick = e =>{
-		e.preventDefault();
-		triangle_area.innerText = "Площадь: " + height.value * base.value / 2;
+        e.preventDefault();
+        console.log(height.value);
+        if(height.value == ''||base.value == '') triangle_area.innerText = "Введите значения";
+        else if(height.value<=0||base.value<=0) triangle_area.innerText = "Значения должны быть больше нуля";
+		else triangle_area.innerText = "Площадь: " + height.value * base.value / 2;
 	}
 }
+
 function strings(){
 	let str1 = document.getElementById('str1');
 	let str2 = document.getElementById('str2');
 	let strings_res = document.getElementById('strings_res');
+
 	document.getElementById('strings_submit').onclick = e => {
 		e.preventDefault();
-		if(str1.value.length === str2.value.length)
+        if(str1.value == ''||str2.value == '') strings_res.innerText = 'Введите строки';
+		else if(str1.value.length === str2.value.length)
             strings_res.innerText = 'Строки одинаковой длины';
 		else
             strings_res.innerText = 'Строки разной длины';
 	}
 }
 function array(){
-    let arr = document.getElementById('arr');
     let minRes =  document.getElementById('min');
     let maxRes =  document.getElementById('max');
 
     document.getElementById('array_submit').onclick = e =>{
         e.preventDefault();
-        let a = arr.value.split(' ');
-        let min = a[0];
-        let max = a[0];
-        for (let i =1; i<a.length; i++){
-            if(a[i] < min) min = a[i];
-            if(a[i] > max) max = a[i];
+        check();
+    }
+
+    function check(){
+        let arr = [];
+        arr[0] = document.getElementById('num1');
+        arr[1] = document.getElementById('num2');
+        arr[2] = document.getElementById('num3');
+        arr[3] = document.getElementById('num4');
+        arr[4] = document.getElementById('num5');
+        console.log(arr[0].value);
+        
+        let checker = true;
+        for (let i = 0; i<arr.length; i++){
+            if(arr[i].value == ''){
+                minRes.innerText = 'Введите массив полностью';
+                checker = false;
+                break;
+            }   
+        }
+        
+        if(checker) analize(arr);
+    }
+
+    function analize(arr){
+        
+        let min = arr[0].value;
+        let max = arr[0].value;
+
+        for (let i =1; i<arr.length; i++){
+            if(arr[i].value < min) min = arr[i].value;
+            if(arr[i].value > max) max = arr[i].value;
         }
         minRes.innerText = "Минимальный элемент: " + min;
         maxRes.innerText = "Максимальный элемент: " + max;
     }
+
+
 }
 
 function timer(){
-    let display = document.getElementById('timer_display');
+    
+
+    let display_hour = document.getElementById('timer_display_hour');
+    let display_min = document.getElementById('timer_display_min');
+    let display_sec = document.getElementById('timer_display_sec');
     let start = document.getElementById('timer_start');
     let stop = document.getElementById('timer_stop');
     let reset = document.getElementById('timer_reset');
     
+    let elapsed_time = document.getElementById('elapsed_time');
     let time = 0;
-    
+    let start_time = 0;
     function tick(){
         let Timer = timeNow(time);
-        display.innerText = `${Timer.mins}:${Timer.secs}`;
-        time++;
-        let i = 5+"Привет";
-        console.log(i);
+        display_hour.innerText = `${Timer.hours}`;
+        display_min.innerText =  `${Timer.mins}`;
+        display_sec.innerText =  `${Timer.secs}`;
+        
+        time--;
+        
     }
 
-    function timeNow(){
+    function timeNow(time){
+        let hour;
         let min;
         let sec;
-        if(time>0){  
+        if(time>0){
+            hour = Math.floor(time/3600);
             min = Math.floor(time/60);
             sec = time % 60;
         }
         else{
+            hour = 0;
             min = 0;
             sec = 0;
         }
         if (time>3600&&min>59) min = min % 60;
+        if (hour<10) hour = "0" + hour;
         if (min<10) min = "0" + min;
         if (sec<10) sec = "0" + sec;
 
-        return{ 
+        return{
+            hours: hour,
             mins: min,
             secs: sec,
         };
     }
     start.onclick = (e) =>{
         e.preventDefault();
-        tickGenerator(true);
-        start.disabled = 'true';  
+        let set_hour = document.getElementById('set_hour');
+        let set_min = document.getElementById('set_min');
+        let set_sec = document.getElementById('set_sec');
+        
+        if(set_hour.value == ''&&set_min.value == ''&&set_sec.value == '') elapsed_time.innerText = "Введите значения, пожалуйста";     
+        else if((set_hour.value < 0||set_min.value < 0||set_sec.value < 0)) elapsed_time.innerText = "Введите положительные значения, пожалуйста";
+        else{
+            time = set_hour.value*3600 + set_min.value*60 + set_sec.value*1;
+            start_time = time;
+            tickGenerator(true);
+            start.disabled = 'true'; 
+            
+            elapsed_time.innerText = "Таймер запущен";
+        }
+
     }
     stop.onclick = (e) =>{
         e.preventDefault();
         tickGenerator(false);
         start.disabled = '';
+        let Elapsed_time = timeNow(start_time-time-1);
+        elapsed_time.innerText = "Прошло времени: " + `${Elapsed_time.hours}:${Elapsed_time.mins}:${Elapsed_time.secs}`
     }
     reset.onclick = (e) =>{
         stop.onclick(e);
         time = 0;
         window.requestAnimationFrame(()=>{
-			display.innerText = '00:00';
+			display_hour.innerText = "00";
+            display_min.innerText =  "00";
+            display_sec.innerText =  "00";
 		});
+        elapsed_time.innerText = "Прошло времени: 00:00:00";
         
     }
 
     let isRunning;
     function tickGenerator(value){
         if(value){
-            tick();
+            //tick();
             isRunning = setInterval(tick, 1000);
         } 
         else clearInterval(isRunning);
@@ -164,7 +227,13 @@ function test(){
     let end = document.getElementById('test_submit');
     let result = document.getElementById('test_res');
     let score = 0;
-   
+
+    end.onclick = (e) =>{
+        e.preventDefault();
+        score = 0;
+        check();
+        result.innerText = "Ваш результат: " + score + " из 7";
+    }
 
    function check(){
         let arr = [];
@@ -185,13 +254,6 @@ function test(){
             }   
         }
 
-    }
-
-    end.onclick = (e) =>{
-        e.preventDefault();
-        score = 0;
-        check();
-        result.innerText = "Ваш результат: " + score + " из 7";
     }
 }
 
