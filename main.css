@@ -44,7 +44,11 @@ ul li a:hover{
     color: rgb(36, 36, 36);
     
 }
-.logo{
+#change_symbol_submit {
+    display: flex;
+    margin: 0 auto;
+}
+.logo {
     float: left;
     color: white;
     font-size: 30px;
@@ -130,7 +134,7 @@ ul li:hover{
 .block{
     width: 60%;
     min-height: 300px;
-    max-height: max-content;
+    max-height: max-content + 100px;
     margin: 0 auto 50px auto;
     background: linear-gradient(40deg, rgb(87, 126, 255), rgb(170, 106, 255));
     border-radius: 24px 24px;
@@ -155,6 +159,11 @@ input{
     width: max-content;
     margin: 0 auto;
     padding: 2px;
+}
+
+#array_strings_submit{
+    display: inline;
+    margin: 20px 0;
 }
 
 
@@ -219,6 +228,12 @@ h2{
 #array form{
     font-size: 25px;
     width: 60%;
+    margin: 0 auto;
+    padding: 0;
+}
+#array_strings form{
+    font-size: 25px;
+    width: 90%;
     margin: 0 auto;
     padding: 0;
 }
@@ -328,5 +343,13 @@ h2{
     padding: 25px;
 }
 .num{
-    width: 18%;
+    width: 18.5%;
+    margin: 0 auto;
+}
+
+.often_symbol_block{
+    height: 500px;
+}
+#change_symbol_result{
+    padding-bottom: 25px;
 }

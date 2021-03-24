@@ -6,6 +6,9 @@ window.onload = () => {
     timer();
     test();
     magic();
+    array_string();
+    oftenSymbol();
+    anagramm();
 
 }
 
@@ -53,6 +56,7 @@ function greetVisitor(){
 
 }
 
+
 function triangle(){
 	let height = document.getElementById('height');
 	let base = document.getElementById('base');
@@ -68,6 +72,7 @@ function triangle(){
 	}
 }
 
+
 function strings(){
 	let str1 = document.getElementById('str1');
 	let str2 = document.getElementById('str2');
@@ -82,6 +87,8 @@ function strings(){
             strings_res.innerText = 'Строки разной длины';
 	}
 }
+
+
 function array(){
     let minRes =  document.getElementById('min');
     let maxRes =  document.getElementById('max');
@@ -125,8 +132,9 @@ function array(){
         maxRes.innerText = "Максимальный элемент: " + max;
     }
 
-
 }
+
+
 
 function timer(){
     
@@ -204,6 +212,7 @@ function timer(){
     reset.onclick = (e) =>{
         stop.onclick(e);
         time = 0;
+        start_time = 0;
         window.requestAnimationFrame(()=>{
 			display_hour.innerText = "00";
             display_min.innerText =  "00";
@@ -291,4 +300,187 @@ function magic(){
             popup.style.display="none";
         }
     }
+}
+
+function array_string(){
+    let res = document.getElementById('max_long_str');
+    let button = document.getElementById('array_strings_submit');
+
+    button.onclick = (e) =>{
+        e.preventDefault();
+
+        let arr = getArr();
+
+        res.innerText = find_max_long_str(arr);     
+    }
+
+    function getArr(){
+        let arr = [];
+        arr[0] = document.getElementById('string1');
+        arr[1] = document.getElementById('string2');
+        arr[2] = document.getElementById('string3');
+        arr[3] = document.getElementById('string4');
+        arr[4] = document.getElementById('string5');
+        
+
+        return arr;
+    }
+    function find_max_long_str(arr){
+        let checker = true;
+        for (let i = 0; i<arr.length; i++){
+            if(arr[i].value == ''){
+                checker = false;
+                break;
+            } 
+        }
+
+        if (checker){
+            let str = arr[0].value;
+            for (let i=0; i<arr.length; i++){
+                if (arr[i].value.length>str.length){
+                    str = arr[i].value;
+                } 
+            }           
+            return "Самая длинна строка: " + str;
+        }
+        else return "Введите массив строк полностью";    
+    }
+
+}
+
+function anagramm(){
+    
+    let res = document.getElementById('anagramm_result');
+    let button = document.getElementById('anagramm_strings_submit');
+
+    button.onclick = (e) =>{
+        e.preventDefault();
+        let str1 = document.getElementById('a_str1').value;
+	    let str2 = document.getElementById('a_str2').value;
+
+        if(str1 != '' && str2 != ''){
+            res.innerText = anagramm_check(str1, str2);    
+        }
+        else{
+            res.innerText = "Введите строки полностью";    
+        }
+    }
+
+    function anagramm_check(str1, str2){
+        if (str1.length != str2.length) return "Это не анаграмма";
+
+        let arr1 = toSortArray(str1);
+        let arr2 = toSortArray(str2);
+        
+        if (compare(arr1, arr2)) return "Это анаграмма";
+        else return "Это не анаграмма";
+    }
+
+    function toSortArray(str){
+        let arr = [];
+        for (let i=0; i<str.length; i++){
+            arr[i] = str[i];     
+        }
+        arr.sort();
+        return arr;
+    }
+
+    function compare(arr1, arr2){
+
+        for (let i=0; i<arr1.length; i++){
+            if (arr1[i] != arr2[i]){
+                return false;
+            }     
+        }
+
+        return true;
+    }
+}
+
+function oftenSymbol(){
+    let res = document.getElementById('often_symbol_result');
+    let res_change = document.getElementById('change_symbol_result');
+    let button1 = document.getElementById('often_symbol_submit');
+    let button2 = document.getElementById('change_symbol_submit');
+    let str;
+    let often_symbol;
+
+    button2.disabled = 'true';
+
+    button1.onclick = (e) =>{
+        e.preventDefault();
+        str = document.getElementById('o_str').value;
+        
+        if(str != ''){
+            often_symbol = findSymbol(str);
+            res.innerText = "Самый частый символ в строке: " + often_symbol;
+            button2.disabled = '';
+        }
+        else{
+            res.innerText = "Введите строку";
+        }
+    }
+    button2.onclick = (e) =>{
+        e.preventDefault();
+        
+        let new_symbol = prompt("Введите символ:");
+        let stupid_counter = 0;
+        while(new_symbol.length!=1){
+            stupid_counter++;
+            if(stupid_counter > 5) new_symbol = prompt("Ты издеваешься да?");
+            if(stupid_counter > 3) new_symbol = prompt("Да введи ты уже ОДИН СИМВОЛ!");
+            else new_symbol = prompt("Введите только один символ:");
+        }
+        if(stupid_counter > 5){
+            stupid_counter = 0;
+            alert("Ганс, смотри, оно эволюционирует");
+        } 
+        if(stupid_counter > 3) alert("Ммм, ну молодец, ты справился");
+        
+        res_change.innerText = "Результат: " + toChangeStr(new_symbol);
+        
+        
+    }
+
+    function toChangeStr(new_symbol){
+        let arr = toArray(str);
+
+        for (let i=0; i<arr.length; i++) {
+            if (arr[i] == often_symbol) {
+                arr[i] = new_symbol;
+            } 
+        }
+        
+        return arr.join('');
+
+    }
+    function findSymbol(str) {
+        let charMap = {};
+        let charArray = [];
+        let vaulesArray = [];
+        let maxCharValue = 0;
+       
+        for (let char of str) {
+            if (charMap.hasOwnProperty(char)) {
+                charMap[char]++;
+            } else {
+                charMap[char] = 1;
+            }
+        }
+       
+        charArray = Object.keys(charMap);
+        vaulesArray = Object.values(charMap);
+        maxCharValue = Math.max(...vaulesArray);
+       
+        return charArray[vaulesArray.indexOf(maxCharValue)];
+    }
+    function toArray(str){
+        let arr = [];
+        for (let i=0; i<str.length; i++){
+            arr[i] = str[i];     
+        }
+        
+        return arr;
+    }
+  
 }

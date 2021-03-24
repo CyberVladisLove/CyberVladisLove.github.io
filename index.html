@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -208,6 +208,50 @@
             <br>
             <div class="result" id="test_res"></div>
         </form>
+
+    </div>
+
+    <div id="array_strings" class="block">
+        <h2 >Введите строки</h2>
+
+        <form action="" method="post">
+			<input type="text" id="string1" class="num">
+            <input type="text" id="string2" class="num">
+            <input type="text" id="string3" class="num">
+            <input type="text" id="string4" class="num">
+            <input type="text" id="string5" class="num">
+			<input type="submit" class="submit" value="Узнать самую длинную" id="array_strings_submit">
+		</form>
+
+		<div class="result" id="max_long_str"></div>
+
+    </div>
+
+    <div id="strings" class="block" class="often_symbol_block">
+        <h2>Введите строку и узнаете самый частый символ</h2>
+
+        <form action="" method="post">
+            <input type="text" id="o_str"><br>
+
+            <input type="submit" class="submit" value="Найти" id="often_symbol_submit">
+        </form>
+
+        <div id="often_symbol_result" class="result"></div>
+        <input type="submit" class="submit" value="Заменить символ" id="change_symbol_submit">
+        <div id="change_symbol_result" class="result"></div>
+
+    </div>
+
+    <div id="strings" class="block">
+        <h2 >Введите две строки</h2>
+
+        <form action="" method="post">
+            <input type="text" id="a_str1"><br>
+            <input type="text" id="a_str2"><br>
+            <input type="submit" class="submit" value="Анализ на анограмму" id="anagramm_strings_submit">
+        </form>
+        
+        <div id="anagramm_result" class="result"></div>
 
     </div>
     
